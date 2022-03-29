@@ -136,8 +136,12 @@ def are_you_happy_with_selected(picked_item, what_is_the_list_of):
 def second_part_of_function(user_input):
     if user_input == "No":
         print("Okay, lets change that!")
+        not_okay = " "
+        return not_okay
     elif user_input == "Yes":
         print("Awesome! Lets move on. ")
+        yes_okay = " "
+        return yes_okay
 
 
 greeting("Trip")
