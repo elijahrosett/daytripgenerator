@@ -8,6 +8,25 @@ entertainment = ["going for a hike", "going to a concert",
 perfect_trip = []
 
 
+def reselect_option(true_or_false, selected_list):
+    while true_or_false == True:
+        print("okay you picked yes")
+    else:
+        new_pick = random_selection(selected_list)
+        are_you_happy_with_selected(new_pick, "destination")
+
+
+def user_input_function(user_input):
+    if user_input == "No":
+        print("Okay, lets change that!")
+        not_okay = False
+        return not_okay
+    elif user_input == "Yes":
+        print("Awesome! Lets move on. ")
+        yes_okay = True
+        return yes_okay
+
+
 def random_selection(select_list):
     random_output = random.choice(select_list)
     return random_output
@@ -24,130 +43,83 @@ def are_you_happy_with_selected(picked_item, what_is_the_list_of):
     return user_input
 
 
-# happy_with_location = True
-# print("Welcome to the day trip generator! I hope you're ready for the perfect vacation!")
-# while happy_with_location is True:
-#     picked_item = random_selection(destinations)
-#     print(
-#         f"Your destination has been selected as {picked_item}")
-#     print("Are you happy with this decision?")
-#     user_input = input("Yes/No ")
-#     if user_input == "No":
-#         print("Okay, lets change that!")
-#         happy_with_location = True
-#     elif user_input == "Yes":
-#         print("Awesome! Lets move on. ")
-#         perfect_trip.append(picked_item)
-#         happy_with_location = False
+def confirmation(list_to_confirm):
+    print("Lets go over what you've selected.")
+    print(f"Destination: {perfect_trip[0]}")
+    print(f"Transportation: {perfect_trip[1]}")
+    print(f"Restaurant: {perfect_trip[2]}")
+    print(f"Entertainment {perfect_trip[3]}")
+    print("Would you like to finalize this trip?")
 
 
-# greeting("Transportation")
+def finalize(list_to_confirm):
+    finalize_trip = input("Yes/No ")
+    if finalize_trip == "Yes":
+        print(
+            f"Here is the plan for your trip. First, you will be going to {perfect_trip[0]}, While there, your transpertation will be {perfect_trip[1]}. You will eat at {perfect_trip[2]}. Finally, your entertainment will be {perfect_trip[3]}.")
+    else:
+
+        print("No problem! Please start over and we can make a new trip!"))
 
 
-# def happy_with_decision(which_list, what_is_the_list_of):
-#     happy_with_transportation = False
-#     while happy_with_transportation is False:
-#         picked_item = random_selection(which_list)
-#     print(f"Your {what_is_the_list_of} has been selected as {picked_item}")
-#     print("Are you happy with this decision?")
-
-
-#     user_input = are_you_happy_with_selected(picked_item, "transportation")
-#     if user_input == "No":
-#         print("Okay, lets change that!")
-#         happy_with_transportation = True
-#     elif user_input == "Yes":
-#         print("Awesome! Lets move on. ")
-#         perfect_trip.append(picked_item)
-#         happy_with_transportation = True
-
-
-# print_this = happy_with_decision(transportation_options, "transportation")
-# print(print_this)
-
-
-# happy_with_food = True
-# print("Next lets pick where you will eat!")
-# while happy_with_food is True:
-#     picked_item = random_selection(restraunts)
-#     print(
-#         f"Your restaurant has been selected as {picked_item}")
-#     print("Are you happy with this decision?")
-#     user_input = input("Yes/No ")
-#     if user_input == "No":
-#         print("Okay, lets change that!")
-#         happy_with_food = True
-#     elif user_input == "Yes":
-#         print("Awesome! Lets move on. ")
-#         perfect_trip.append(picked_item)
-#         happy_with_food = False
-#         break
-
-
-# happy_with_entertainment = True
-# print("Next lets pick your entertainment!")
-# while happy_with_entertainment is True:
-#     picked_item = random_selection(entertainment)
-#     print(
-#         f"Your activity has been selected as {picked_item}")
-#     print("Are you happy with this decision?")
-#     user_input = input("Yes/No ")
-#     if user_input == "No":
-#         print("Okay, lets change that!")
-#         happy_with_entertainment = True
-#     elif user_input == "Yes":
-#         print("Awesome! Lets move on. ")
-#         perfect_trip.append(picked_item)
-#         happy_with_entertainment = False
-#         break
-
-# print("Lets go over what you've selected.")
-# print(f"Destination: {perfect_trip[0]}")
-# print(f"transportation: {perfect_trip[1]}")
-# print(f"Restaurant: {perfect_trip[2]}")
-# print(f"Entertainment {perfect_trip[3]}")
-# print("Would you like to finalize this trip?")
-# finalize_trip = input("Yes/No ")
-# if finalize_trip == "Yes":
-#     print(
-#         f"Here is the plan for your trip. First, you will be going to {perfect_trip[0]}, While there, your transpertation will be {perfect_trip[1]}. You will eat at {perfect_trip[2]}. Finally, your entertainment will be {perfect_trip[3]}.")
-# else:
-#     print("What would you like to change?")
-#     change_trip = input(
-# #         "No problem! Please start over and we can make a new trip!")
-# happy_with_location = True
-
-
-# def day_trip_function(which_list, what_are_we_picking):
-#     while happy_with_location is True:
-#         picked_item = random_selection(which_list)
-#     print(
-#         f"Your {what_are_we_picking} has been selected as {picked_item}, Are you happy with this decision?")
-#     user_input = input("Yes/No ")
-#     if user_input == "No":
-#         print("Okay, lets change that!")
-#         happy_with_location = True
-#     elif user_input == "Yes":
-#         print("Awesome! Lets move on. ")
-#         perfect_trip.append(picked_item)
-#         happy_with_location = False
-
-
-def second_part_of_function(user_input):
-    if user_input == "No":
-        print("Okay, lets change that!")
-        not_okay = " "
-        return not_okay
-    elif user_input == "Yes":
-        print("Awesome! Lets move on. ")
-        yes_okay = " "
-        return yes_okay
-
-
+print("Welcome to the day trip generator! I hope you're ready for the perfect vacation!")
 greeting("Trip")
-selected_destination = (random_selection(destinations))
-user_input = are_you_happy_with_selected(selected_destination, "destination")
-second_part_of_function(user_input)
+selected_item_from_list=(random_selection(destinations))
+user_input=are_you_happy_with_selected(
+    selected_item_from_list, "destination")
+user_answer=user_input_function(user_input)
+while user_answer == False:
+    selected_item_from_list=(random_selection(destinations))
+    user_input=are_you_happy_with_selected(
+        selected_item_from_list, "destination")
+    user_answer=user_input_function(user_input)
+else:
+    perfect_trip.append(selected_item_from_list)
 
 
-# perfect_trip.append(picked_item)
+greeting("transportation")
+selected_item_from_list=(random_selection(transportation_options))
+user_input=are_you_happy_with_selected(
+    selected_item_from_list, "transportation")
+user_answer=user_input_function(user_input)
+while user_answer == False:
+    selected_item_from_list=(random_selection(transportation_options))
+    user_input=are_you_happy_with_selected(
+        selected_item_from_list, "transportation")
+    user_answer=user_input_function(user_input)
+else:
+    perfect_trip.append(selected_item_from_list)
+
+
+greeting("restraunt")
+selected_item_from_list=(random_selection(restraunts))
+user_input=are_you_happy_with_selected(
+    selected_item_from_list, "restraunt")
+user_answer=user_input_function(user_input)
+while user_answer == False:
+    selected_item_from_list=(random_selection(restraunts))
+    user_input=are_you_happy_with_selected(
+        selected_item_from_list, "restraunt")
+    user_answer=user_input_function(user_input)
+else:
+    perfect_trip.append(selected_item_from_list)
+
+
+greeting("entertainment")
+selected_item_from_list=(random_selection(entertainment))
+user_input=are_you_happy_with_selected(
+    selected_item_from_list, "entertainment")
+user_answer=user_input_function(user_input)
+while user_answer == False:
+    selected_item_from_list=(random_selection(entertainment))
+    user_input=are_you_happy_with_selected(
+        selected_item_from_list, "entertainment")
+    user_answer=user_input_function(user_input)
+else:
+    perfect_trip.append(selected_item_from_list)
+
+confirmation(perfect_trip)
+finalize(perfect_trip)
+
+
+print(perfect_trip)
