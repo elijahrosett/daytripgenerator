@@ -2,7 +2,7 @@ import random
 destinations = ["Utah", "Texas", "Arizona", "California", "Cabo"]
 transportation_options = ["an Uber", "a rental car",
                           "a personal helicopter", "a bike"]
-restraunts = ["Cafe Rio", "Mcdonalds", "Cheesecake Factory"]
+restaurants = ["Cafe Rio", "Mcdonalds", "Cheesecake Factory"]
 entertainment = ["going for a hike", "going to a concert",
                  "going to the pool", "mountain biking"]
 perfect_trip = []
@@ -59,67 +59,29 @@ def finalize(list_to_confirm):
             f"Here is the plan for your trip. First, you will be going to {perfect_trip[0]}, While there, your transpertation will be {perfect_trip[1]}. You will eat at {perfect_trip[2]}. Finally, your entertainment will be {perfect_trip[3]}.")
     else:
 
-        print("No problem! Please start over and we can make a new trip!"))
+        print("No problem! Please start over and we can make a new trip!")
+
+
+def master_function(destination, list_being_called):
+    greeting(destination)
+    selected_item_from_list = (random_selection(list_being_called))
+    user_input = are_you_happy_with_selected(
+        selected_item_from_list, destination)
+    user_answer = user_input_function(user_input)
+    while user_answer == False:
+        selected_item_from_list = (random_selection(list_being_called))
+        user_input = are_you_happy_with_selected(
+            selected_item_from_list, destination)
+        user_answer = user_input_function(user_input)
+    else:
+        perfect_trip.append(selected_item_from_list)
 
 
 print("Welcome to the day trip generator! I hope you're ready for the perfect vacation!")
-greeting("Trip")
-selected_item_from_list=(random_selection(destinations))
-user_input=are_you_happy_with_selected(
-    selected_item_from_list, "destination")
-user_answer=user_input_function(user_input)
-while user_answer == False:
-    selected_item_from_list=(random_selection(destinations))
-    user_input=are_you_happy_with_selected(
-        selected_item_from_list, "destination")
-    user_answer=user_input_function(user_input)
-else:
-    perfect_trip.append(selected_item_from_list)
 
-
-greeting("transportation")
-selected_item_from_list=(random_selection(transportation_options))
-user_input=are_you_happy_with_selected(
-    selected_item_from_list, "transportation")
-user_answer=user_input_function(user_input)
-while user_answer == False:
-    selected_item_from_list=(random_selection(transportation_options))
-    user_input=are_you_happy_with_selected(
-        selected_item_from_list, "transportation")
-    user_answer=user_input_function(user_input)
-else:
-    perfect_trip.append(selected_item_from_list)
-
-
-greeting("restraunt")
-selected_item_from_list=(random_selection(restraunts))
-user_input=are_you_happy_with_selected(
-    selected_item_from_list, "restraunt")
-user_answer=user_input_function(user_input)
-while user_answer == False:
-    selected_item_from_list=(random_selection(restraunts))
-    user_input=are_you_happy_with_selected(
-        selected_item_from_list, "restraunt")
-    user_answer=user_input_function(user_input)
-else:
-    perfect_trip.append(selected_item_from_list)
-
-
-greeting("entertainment")
-selected_item_from_list=(random_selection(entertainment))
-user_input=are_you_happy_with_selected(
-    selected_item_from_list, "entertainment")
-user_answer=user_input_function(user_input)
-while user_answer == False:
-    selected_item_from_list=(random_selection(entertainment))
-    user_input=are_you_happy_with_selected(
-        selected_item_from_list, "entertainment")
-    user_answer=user_input_function(user_input)
-else:
-    perfect_trip.append(selected_item_from_list)
-
+(master_function("destination", destinations))
+(master_function("transportation", transportation_options))
+(master_function("restaurant", restaurants))
+(master_function("entertainment", entertainment))
 confirmation(perfect_trip)
 finalize(perfect_trip)
-
-
-print(perfect_trip)
